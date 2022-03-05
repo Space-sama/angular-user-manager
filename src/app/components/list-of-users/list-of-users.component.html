@@ -1,0 +1,71 @@
+
+
+   <!-- Infos User -->
+   <div class="container">
+       
+           <div class="col-md-12 text-center mt-4" *ngIf="userSavedToken">
+               Welcome <b>{{userSavedToken.firstName}}</b>
+           </div>
+     
+   </div>
+
+
+
+
+
+   <!-- Welcome -->
+    <div class="container" *ngIf="userSavedToken">
+        <div class="text-center" style="margin-top: 70px;">
+            <h2 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                <span style="font-size: 20px;">🌟</span> Our List Of Users <span style="font-size: 20px;">🌟</span></h2>
+        </div>
+    </div>
+
+    <div class="container" *ngIf="!userSavedToken">
+        <div class="text-center" style="margin-top: 70px;">
+            <h2 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                <span style="font-size: 20px;">🌟</span> You have to sign in before accessing ! <span style="font-size: 20px;">🌟</span></h2>
+        </div>
+    </div>
+    
+
+
+    <!-- List Of Users -->
+    <div class="container" style="margin-top: 20px;" *ngIf="userSavedToken">
+        <table class="table table-bordered">
+
+            <thead>
+            <tr>
+                <th>ID User</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Pseudo Name</th>
+                <th>Email</th>
+                <th style="color: rgb(179, 130, 71);">✏️ Edit User</th>
+                <th style="color: rgb(243, 116, 116);">🗑️ Delete User</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr *ngFor="let u of users">
+                <td><p>{{u._id}}</p></td>
+                <td><p>{{u.firstName}}</p></td>
+                <td><p>{{u.lastName}}</p></td>
+                <td><p>{{u.pseudoName}}</p></td>
+                <td><p>{{u.emaill}}</p></td>
+                <td *ngIf="userSavedToken?._id !== u._id"><button class="btn btn-warning btn-sm btn-block my-8" [routerLink]="['/user/', u._id]">Edit</button></td>
+                <td *ngIf="userSavedToken?._id !== u._id"><button class="btn btn-danger btn-sm btn-block my-8" (click)="deleteOneUser(u._id)">Delete</button></td>
+            </tr>
+            </tbody>
+
+        </table>
+        <div class="container d-flex justify-content-center" *ngIf="users.length == 0">
+            <div class="col-md-4">
+                <div  class="alert alert-warning text-center" role="alert">
+                    <b>No user found in the database !</b>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+

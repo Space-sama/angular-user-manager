@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a *ngIf="userSavedToken" class="navbar-brand" href="/users">CRUD of User management</a>
+    <a *ngIf="!userSavedToken" class="navbar-brand" href="/">CRUD of User management</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item" *ngIf="userSavedToken">
+          <a class="nav-link" routerLink="/users" routerLinkActive="active">Users</a>
+        </li>
+        <li class="nav-item" *ngIf="userSavedToken">
+          <a class="nav-link" routerLink="users/createOne" routerLinkActive="active">Add User</a>
+        </li>
+
+        <li class="nav-item" *ngIf="!userSavedToken">
+          <a class="nav-link" routerLink="users/registerOne" routerLinkActive="active">✣ Register</a>
+        </li>
+
+        <li class="nav-item" *ngIf="!userSavedToken">
+          <a class="nav-link" routerLink="users/login" routerLinkActive="active">Login ➛</a>
+        </li>
+
+        <li class="nav-item" *ngIf="userSavedToken">
+          <a style="cursor: pointer;" class="nav-link" (click)="logout()"><span style="font-size: 11px;">❌</span> Logout</a>
+        </li>
+       
+      </ul>
+    </div>
+  </nav>

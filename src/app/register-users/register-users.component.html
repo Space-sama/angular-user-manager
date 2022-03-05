@@ -1,0 +1,33 @@
+
+    <div class="container d-flex justify-content-center">
+
+        <div class="col-md-5">
+            <form (ngSubmit)="submitForm()" class="text-center border border-light p-5">
+    
+                <p class="h4 mb-4">+ Register here !</p>
+            
+
+                <!-- Firstname -->
+                <input [(ngModel)]="userObject.firstName" type="text"  name="firstName" class="form-control mb-4" placeholder="What's your first name ?" required="required" />
+
+                <!-- Lastname -->
+                <input [(ngModel)]="userObject.lastName" type="text"  name="lastName" class="form-control mb-4" placeholder="What's your last name ?" required="required" />
+                
+                <!-- Pseudo -->
+                <input [(ngModel)]="userObject.pseudoName" type="text"  name="pseudoName" class="form-control mb-4" placeholder="What's your pseudo name ?" required="required" />
+                
+                <!-- Email -->
+                <input [(ngModel)]="userObject.emaill" type="email"  name="emaill" class="form-control mb-4" placeholder="What's your email aderess ?" required="required" />
+
+                <!-- Password name -->
+                <input [(ngModel)]="userObject.pwwd" type="password"  name="pwwd" class="form-control mb-4" placeholder="Your secret password ?" required="required" />
+            
+                <!-- Validate to save the user -->
+                <button class="btn btn-primary btn-sm btn-block my-8" type="submit">Register now</button>
+            
+            </form>
+        </div>
+     
+    </div>
+
+

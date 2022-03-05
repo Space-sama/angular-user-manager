@@ -1,0 +1,32 @@
+
+    <div class="container d-flex justify-content-center">
+
+        <div class="col-md-5">
+            <form (ngSubmit)="editStatus === 'OK' ? updateOneUser() : submitForm()" class="text-center border border-light p-5">
+    
+                <p class="h4 mb-4">👤 Add user now !</p>
+            
+                <!-- FirstName -->
+                <input type="text" [(ngModel)]="userObject.firstName"  name="firstName" class="form-control mb-4" placeholder="What's your Firstname ?" required />
+            
+                <!-- LastName -->
+                <input type="text" [(ngModel)]="userObject.lastName" name="lastName" class="form-control mb-4" placeholder="What's your Lastname ?" required />
+
+                <!-- Email -->
+                <input type="email" [(ngModel)]="userObject.emaill" name="emaill" class="form-control mb-4" placeholder="What's your email aderess ?" required />
+
+                <!-- Pseudo name -->
+                <input type="text" [(ngModel)]="userObject.pseudoName" name="pseudoName" class="form-control mb-4" placeholder="What do you wanna be called ?" required />
+
+                <!-- password name -->
+                <input *ngIf="editStatus === '' " type="password" [(ngModel)]="userObject.pwwd" name="pwwd" class="form-control mb-4" placeholder="Your secret password ?" required />
+            
+                <!-- Validate to save the user -->
+                <button class="btn btn-primary btn-sm btn-block my-8" type="submit">Validate</button>
+            
+            </form>
+        </div>
+     
+    </div>
+
+
