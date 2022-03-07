@@ -1,5 +1,12 @@
 
-    <div class="container d-flex justify-content-center">
+    <div class="container" *ngIf="!userSavedToken">
+        <div class="text-center" style="margin-top: 70px;">
+            <h2 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                <span style="font-size: 20px;">🌟</span> You have to sign in before accessing ! <span style="font-size: 20px;">🌟</span></h2>
+        </div>
+    </div>
+    
+    <div class="container d-flex justify-content-center" *ngIf="userSavedToken">
 
         <div class="col-md-5">
             <form (ngSubmit)="editStatus === 'OK' ? updateOneUser() : submitForm()" class="text-center border border-light p-5">

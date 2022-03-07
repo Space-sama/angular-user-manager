@@ -54,7 +54,10 @@
                 <td><p>{{u.pseudoName}}</p></td>
                 <td><p>{{u.emaill}}</p></td>
                 <td *ngIf="userSavedToken?._id !== u._id"><button class="btn btn-warning btn-sm btn-block my-8" [routerLink]="['/user/', u._id]">Edit</button></td>
+                <td *ngIf="userSavedToken?._id == u._id">&nbsp;&nbsp;<span style="color: rgb(240, 193, 136);"><b>you cannot edit yourself !</b></span></td>
+
                 <td *ngIf="userSavedToken?._id !== u._id"><button class="btn btn-danger btn-sm btn-block my-8" (click)="deleteOneUser(u._id)">Delete</button></td>
+                <td *ngIf="userSavedToken?._id == u._id">&nbsp;&nbsp;<span style="color: rgb(230, 95, 71);"><b>you cannot delete yourself !</b></span></td>
             </tr>
             </tbody>
 
