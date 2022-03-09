@@ -18,18 +18,9 @@ export class AuthenticationService {
 
 
    public loginUser(userData:any){
-    return this.httpClient.post<any>(`${this.URL_API}/auth/login_user`, userData,
-    {
-      withCredentials: true,
-    }).subscribe(
-
-    (res:any) => {
-    console.log(res);
-    localStorage.setItem('token', JSON.stringify(res))
-    this.router.navigate(['/users']).then(() => {
-      window.location.reload();
-    })
-    })
+    return this.httpClient.post<any>(`${this.URL_API}/auth/login_user`, userData, {
+      withCredentials:true,
+    });
   }
 
 
